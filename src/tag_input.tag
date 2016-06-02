@@ -17,7 +17,7 @@
       }
     }
     this.remove = function(e) {
-      $( e.target ).parent().remove()
+      e.target.parentNode.parentNode.removeChild(e.target.parentNode)
     }
   </script>
 
