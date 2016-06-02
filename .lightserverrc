@@ -1,0 +1,8 @@
+{
+  "serveDir": "./src",
+  "watchexps": [
+    "*.html",
+    "*.js",    
+    "*.tag"
+  ]
+}

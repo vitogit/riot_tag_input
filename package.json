@@ -1,0 +1,24 @@
+{
+  "name": "riot_tag_input",
+  "version": "1.0.0",
+  "description": "Riot tags input component, based on bootstrap-tagsinput",
+  "main": "index.js",
+  "scripts": {
+    "start": "light-server -c .lightserverrc",
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "riot",
+    "log"
+  ],
+  "author": "vitogit",
+  "license": "MIT",
+  "devDependencies": {
+    "light-server": "^1.1.5",
+    "riot": "^2.3.15"
+  }
+}
