@@ -4,7 +4,7 @@
     <span each={tag in tag_list} >
       <span class="tag label label-info">{tag}<span onclick={remove} data-role="remove"></span></span>
     </span> 
-    <input onkeyup={add} class="form-control bootstrap-tagsinput" type="text" placeholder="" size="6" name="input" autocomplete="off" />   
+    <input onkeypress={add} class="form-control bootstrap-tagsinput" type="text" placeholder="" size="6" name="input" autocomplete="off" />   
   </div>
 
   <script>
@@ -15,6 +15,7 @@
         this.tag_list.push(this.input.value)
         this.input.value = ''
       }
+      return true
     }
     this.remove = function(e) {
       e.target.parentNode.parentNode.removeChild(e.target.parentNode)
