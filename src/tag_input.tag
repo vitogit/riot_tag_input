@@ -1,10 +1,9 @@
 <tag-input>
-  
-  <div class="bootstrap-tagsinput"> 
+  <div onclick={input_focus} class="bootstrap-tagsinput">
     <span each={tag in tag_list} >
-      <span class="tag label label-info">{tag}<span onclick={remove} data-role="remove"></span></span>
-    </span> 
-    <input onkeypress={add} class="form-control bootstrap-tagsinput" type="text" placeholder="" size="6" name="input" autocomplete="off" />   
+      <tagc name={tag}></tagc>
+    </span>
+    <input onkeypress={add} class="form-control bootstrap-tagsinput" type="text" placeholder="" size="6" name="input" autocomplete="off" />
   </div>
 
   <script>
@@ -17,15 +16,15 @@
       }
       return true
     }
-    this.remove = function(e) {
-      e.target.parentNode.parentNode.removeChild(e.target.parentNode)
+    this.input_focus = function(e) {
+      this.input.focus()
     }
   </script>
 
-  <style>
+  <style scoped>
     /*
      * css based on bootstrap-tagsinput v0.8.0
-     * 
+     *
      */
 
     .bootstrap-tagsinput {
@@ -53,22 +52,35 @@
       border: none;
       box-shadow: none;
     }
-    .bootstrap-tagsinput .tag {
-      color: white;
-      margin: 2px;
-      font-size: 80%;
-      background-color: #d9edf7;
-      color: 31708f;
-      border-color: #bce8f1;
-    }
-    .bootstrap-tagsinput .tag [data-role="remove"] {
-      margin-left: 8px;
-      cursor: pointer;
-    }
-    .bootstrap-tagsinput .tag [data-role="remove"]:after {
-      content: "x";
-      padding: 0px 2px;
-    }
 
   </style>
 </tag-input>
+
+<tagc>
+ <span class="tag label label-info" onclick={remove}>{opts.name}</span>
+ <script>
+   this.remove = function() {
+    this.unmount()
+    this.update()
+   }
+ </script>
+ <style scoped>
+   .tag {
+     color: white;
+     margin: 2px;
+     font-size: 80%;
+     background-color: #d9edf7;
+     color: 31708f;
+     border-color: #bce8f1;
+   }
+   .tag [data-role="remove"] {
+     margin-left: 8px;
+     cursor: pointer;
+   }
+   .tag [data-role="remove"]:after {
+     content: "x";
+     padding: 0px 2px;
+   }
+
+ </style>
+</tagc>
